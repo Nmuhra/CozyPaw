@@ -1,0 +1,76 @@
+/* Sticky header, navigation, mobile menu and the floating WhatsApp button */
+
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(237,239,226,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 28px;
+  max-width:1120px; margin:0 auto;
+  position:relative;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  font-family:'Fraunces', serif; font-weight:600; font-size:1.35rem;
+}
+.brand .mark{
+  width:36px; height:36px; border-radius:50%;
+  background:var(--moss); color:var(--paper);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces', serif; font-size:1.1rem; font-weight:600;
+  flex-shrink:0;
+}
+nav.links{
+  display:flex; gap:28px; align-items:center;
+  font-size:0.92rem; font-weight:500;
+}
+nav.links a{
+  text-decoration:none; color:var(--ink-soft);
+  transition:color .15s ease;
+}
+nav.links a:hover{color:var(--moss-deep);}
+
+.nav-actions{display:flex; align-items:center; gap:10px;}
+.menu-toggle{
+  display:none;
+  width:44px; height:44px;
+  border:1px solid var(--line); border-radius:12px;
+  background:var(--paper); color:var(--ink);
+  font-size:1.3rem; line-height:1; cursor:pointer;
+}
+
+/* Floating WhatsApp shortcut (mobile only) */
+.wa-float{
+  display:none;
+  position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom, 0px)); z-index:60;
+  align-items:center; gap:8px;
+  padding:14px 20px;
+  border-radius:999px;
+  background:#1F7A4D; color:#fff;
+  font-weight:600; font-size:0.95rem; text-decoration:none;
+  box-shadow:0 10px 24px rgba(35,48,30,0.28);
+}
+
+@media (max-width: 900px){
+  .menu-toggle{display:inline-flex; align-items:center; justify-content:center;}
+  nav.links{
+    display:none;
+    position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:stretch; gap:0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:4px 28px 12px;
+    box-shadow:var(--shadow);
+  }
+  nav.links a{padding:14px 0; border-top:1px solid var(--line);}
+  nav.links a:first-child{border-top:none;}
+  header.open nav.links{display:flex;}
+  .wa-float{display:inline-flex;}
+}
+@media (max-width: 420px){
+  .nav{padding:14px 16px;}
+  .nav-actions .btn{padding:10px 14px;}
+}

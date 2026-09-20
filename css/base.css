@@ -1,0 +1,111 @@
+/* Design tokens, reset, typography and shared building blocks */
+
+:root{
+  --bg: #EDEFE2;
+  --paper: #FBFAF3;
+  --ink: #23301E;
+  --ink-soft: #4B5643;
+  --moss: #4C6B4F;
+  --moss-deep: #33472F;
+  --marigold: #C98A2E;
+  --marigold-deep: #8A5A0F;
+  --marigold-soft: #E8CE9F;
+  --brick: #A85238;
+  --line: rgba(35,48,30,0.14);
+  --shadow: 0 12px 30px rgba(35,48,30,0.10);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:84px;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Work Sans', sans-serif;
+  font-size:16px;
+  line-height:1.6;
+}
+h1,h2,h3{
+  font-family:'Fraunces', serif;
+  color:var(--ink);
+  margin:0 0 0.4em 0;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+a{color:inherit;}
+a:focus-visible, button:focus-visible, summary:focus-visible{
+  outline:3px solid var(--marigold);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+.skip-link{
+  position:absolute; left:16px; top:-60px; z-index:100;
+  background:var(--ink); color:var(--paper);
+  padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600;
+}
+.skip-link:focus{top:12px;}
+
+.stamp-font{
+  font-family:'Space Mono', monospace;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+.wrap{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 20px;
+  border-radius:999px;
+  font-weight:600; font-size:0.9rem;
+  text-decoration:none;
+  border:1px solid transparent;
+  transition:transform .15s ease, box-shadow .15s ease;
+  cursor:pointer;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--moss); color:var(--paper); box-shadow:var(--shadow);}
+.btn-primary:hover{background:var(--moss-deep);}
+.btn-ghost{border-color:var(--ink); color:var(--ink); background:transparent;}
+.btn-ghost:hover{background:var(--ink); color:var(--paper);}
+.btn-whatsapp{background:#1F7A4D; color:#fff; box-shadow:var(--shadow);}
+.btn-whatsapp:hover{background:#186540;}
+
+/* ---------- Eyebrow label and section heading ---------- */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Space Mono', monospace;
+  font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em;
+  color:var(--moss-deep);
+  background:var(--marigold-soft);
+  padding:6px 14px;
+  border-radius:999px;
+  margin-bottom:22px;
+}
+.eyebrow::before{content:"🐾"; font-size:0.9rem;}
+
+section{padding:88px 0;}
+.section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
+.section-head .eyebrow{background:none; padding:0; color:var(--brick); margin-bottom:12px;}
+.section-head .eyebrow::before{content:none;}
+.section-head h2{font-size:clamp(1.8rem,3vw,2.4rem);}
+.section-head p{color:var(--ink-soft); font-size:1.05rem; margin-top:12px;}
+
+.paw-stamp{
+  font-size:1.6rem; transform:rotate(-12deg);
+  color:var(--moss);
+}
+
+@media (max-width: 420px){
+  .wrap{padding:0 20px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .btn:hover{transform:none;}
+}

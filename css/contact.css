@@ -1,0 +1,56 @@
+/* Contact section (direct links + booking form) and footer */
+
+.contact-panel{
+  display:grid; grid-template-columns:1fr 1fr; gap:44px;
+}
+.contact-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:32px;
+}
+.contact-methods{display:flex; flex-direction:column; gap:16px; margin-top:22px;}
+.contact-methods a{
+  display:flex; align-items:center; gap:12px;
+  text-decoration:none;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  font-weight:500;
+  transition:border-color .15s ease, background .15s ease;
+}
+.contact-methods a:hover{border-color:var(--moss); background:rgba(76,107,79,0.06);}
+.contact-methods .em{font-size:1.2rem;}
+
+form{display:flex; flex-direction:column; gap:14px;}
+label{font-size:0.85rem; font-weight:600; color:var(--ink-soft);}
+input, textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  font-family:'Work Sans', sans-serif;
+  font-size:0.95rem;
+  background:var(--bg);
+  color:var(--ink);
+}
+input:focus, textarea:focus{
+  outline:2px solid var(--moss);
+  outline-offset:1px;
+}
+textarea{resize:vertical; min-height:100px;}
+.form-note{margin:0; font-size:0.85rem; color:var(--ink-soft);}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:36px 0;
+  text-align:center;
+  color:var(--ink-soft);
+  font-size:0.85rem;
+}
+footer .brand{justify-content:center; margin-bottom:10px;}
+
+@media (max-width: 900px){
+  .contact-panel{grid-template-columns:1fr;}
+  footer{padding-bottom:96px;} /* room for the floating WhatsApp button */
+}

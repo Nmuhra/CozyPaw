@@ -1,0 +1,315 @@
+/* Content sections, in page order: trust strip, services, how it works,
+   rates, coverage, gallery, FAQ. Each block carries its own responsive rules. */
+
+/* ---------- Trust strip ---------- */
+.trust{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+.trust .wrap{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  padding:34px 28px;
+  text-align:center;
+}
+.trust-item .stamp-font{font-size:0.72rem; color:var(--moss-deep); display:block; margin-bottom:6px;}
+.trust-item p{margin:0; font-weight:500; font-size:0.98rem;}
+
+@media (max-width: 900px){
+  .trust .wrap{grid-template-columns:1fr;}
+}
+
+/* ---------- Services ---------- */
+.services-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:28px;
+}
+.service-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:34px;
+  position:relative;
+  overflow:hidden;
+}
+.service-card h3{font-size:1.35rem;}
+.service-card p{color:var(--ink-soft); margin:10px 0 22px;}
+.price-tag{
+  display:inline-flex; align-items:baseline; gap:6px;
+  font-family:'Fraunces', serif; font-weight:600;
+  font-size:2rem; color:var(--moss-deep);
+}
+.price-tag span{
+  font-family:'Work Sans', sans-serif; font-weight:500;
+  font-size:0.95rem; color:var(--ink-soft);
+}
+.fine-print{
+  margin-top:10px; font-size:0.85rem; color:var(--ink-soft);
+  font-style:italic;
+}
+
+@media (max-width: 900px){
+  .services-grid{grid-template-columns:1fr;}
+}
+
+/* ---------- How it works ---------- */
+/* Interactive stepper: js/main.js adds .is-interactive (click a step to open it,
+   earlier steps become .is-done) and .in-view (staggered entrance on scroll).
+   Without JS every step just shows its summary. */
+.steps{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  align-items:start;
+}
+.step{
+  position:relative;
+  border:1px solid transparent;
+  border-radius:16px;
+  transition:background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.step-btn{
+  display:block; width:100%;
+  padding:20px 20px 18px;
+  border:0; border-radius:16px;
+  background:none; color:inherit;
+  font:inherit; text-align:left;
+}
+.step-dot{
+  position:relative; z-index:1;
+  display:flex; align-items:center; justify-content:center;
+  width:32px; height:32px; margin-bottom:14px;
+  border:1.5px solid rgba(35,48,30,0.35); border-radius:50%;
+  background:var(--paper); color:var(--ink-soft);
+  font-family:'Space Mono', monospace; font-size:0.75rem;
+  transition:background .25s ease, border-color .25s ease, color .25s ease;
+}
+.step-title{
+  display:block; margin-bottom:6px;
+  font-family:'Fraunces', serif; font-weight:600; font-size:1.1rem;
+  color:var(--ink);
+}
+.step-summary{display:block; color:var(--ink-soft); font-size:0.92rem;}
+
+/* Progress line to the next step (horizontal on wide screens) */
+.step:not(:last-child)::after{
+  content:"";
+  position:absolute; top:35px; left:60px;
+  width:calc(100% - 22px); height:2px; border-radius:2px;
+  background:linear-gradient(var(--moss), var(--moss)) left / 0 100% no-repeat, rgba(35,48,30,0.18);
+  transition:background-size .5s ease;
+}
+.step.is-done:not(:last-child)::after{background-size:100% 100%;}
+
+/* Step states (only once JS has made the list interactive) */
+.steps.is-interactive .step-btn{cursor:pointer;}
+.steps.is-interactive .step:not(.is-active):hover{background:rgba(35,48,30,0.04);}
+.steps.is-interactive .step:not(.is-active):hover .step-dot{border-color:var(--moss); color:var(--moss-deep);}
+.step.is-active{
+  background:#fff;
+  border-color:var(--line);
+  box-shadow:var(--shadow);
+}
+.step.is-active .step-dot{background:var(--marigold); border-color:var(--marigold); color:#2A1B02;}
+.step.is-done .step-dot{background:var(--moss); border-color:var(--moss); color:var(--paper); font-size:0;}
+.step.is-done .step-dot::before{content:"✓"; font-size:0.9rem;}
+
+/* Expanding detail panel */
+.steps.is-interactive .step-detail{
+  display:grid; grid-template-rows:0fr; visibility:hidden;
+  transition:grid-template-rows .35s ease, visibility 0s .35s;
+}
+.steps.is-interactive .step.is-active .step-detail{
+  grid-template-rows:1fr; visibility:visible;
+  transition:grid-template-rows .35s ease, visibility 0s;
+}
+.step-detail-inner{min-height:0; overflow:hidden;}
+.step-detail-body{margin:0 20px; padding:14px 0 20px; border-top:1px dashed var(--line);}
+.step-detail-body p{margin:0 0 12px; color:var(--ink-soft); font-size:0.92rem;}
+.step-action{
+  display:inline-block; padding:0; border:0; background:none;
+  font:inherit; font-size:0.88rem; font-weight:600;
+  color:var(--moss-deep); text-decoration:underline; text-underline-offset:3px;
+  cursor:pointer;
+}
+.step-action:hover{color:var(--ink);}
+/* Without JS the detail panels stay hidden-in-markup; hide their buttons too */
+.steps:not(.is-interactive) .step-detail{display:none;}
+
+/* Staggered entrance when the section scrolls into view */
+.steps.is-interactive .step{
+  opacity:0; transform:translateY(14px);
+  transition:
+    opacity .5s ease calc(var(--i) * 90ms),
+    transform .5s ease calc(var(--i) * 90ms),
+    background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.steps.is-interactive.in-view .step{opacity:1; transform:none;}
+
+.steps-hint{
+  display:none;
+  margin:28px 0 0; text-align:center;
+  font-family:'Space Mono', monospace; font-size:0.75rem; letter-spacing:0.04em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+.steps.is-interactive + .steps-hint{display:block;}
+
+@media (max-width: 900px){
+  .steps{grid-template-columns:1fr; gap:12px;}
+  /* Progress line runs down the left side instead */
+  .step:not(:last-child)::after{
+    top:56px; left:35px;
+    width:2px; height:calc(100% - 26px);
+    background:linear-gradient(var(--moss), var(--moss)) top / 100% 0 no-repeat, rgba(35,48,30,0.18);
+  }
+  .step.is-done:not(:last-child)::after{background-size:100% 100%;}
+  /* Number circle beside the text, so the line runs down an empty column */
+  .step-btn{
+    display:grid; grid-template-columns:32px 1fr; column-gap:14px;
+    align-items:start;
+  }
+  .step-dot{grid-row:1 / span 2; margin-bottom:0;}
+  .step-title{margin-top:2px;}
+  .step-detail-body{margin-left:66px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .steps.is-interactive .step{opacity:1; transform:none; transition:none;}
+  .steps.is-interactive .step-detail,
+  .steps.is-interactive .step.is-active .step-detail,
+  .step:not(:last-child)::after{transition:none;}
+}
+
+/* ---------- Rates ---------- */
+.rates-panel{
+  background:var(--moss-deep);
+  color:var(--paper);
+  border-radius:22px;
+  padding:48px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.rates-panel h2{color:var(--paper);}
+.rates-panel p{color:rgba(251,250,243,0.78);}
+.rate-list{list-style:none; margin:0; padding:0;}
+.rate-list li{
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding:16px 0;
+  border-bottom:1px solid rgba(251,250,243,0.18);
+}
+.rate-list li:last-child{border-bottom:none;}
+.rate-list .label{font-weight:500;}
+.rate-list .amount{
+  font-family:'Fraunces', serif; font-weight:600; font-size:1.5rem;
+}
+.rate-list .amount span{font-family:'Work Sans',sans-serif; font-size:0.8rem; font-weight:400; color:rgba(251,250,243,0.7);}
+
+@media (max-width: 900px){
+  .rates-panel{grid-template-columns:1fr;}
+}
+
+/* ---------- Coverage ---------- */
+.coverage{
+  display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+}
+.coverage-map{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:36px;
+  text-align:center;
+}
+.coverage ul{padding-left:20px; color:var(--ink-soft);}
+.coverage li{margin-bottom:8px;}
+
+@media (max-width: 900px){
+  .coverage{grid-template-columns:1fr;}
+}
+
+/* ---------- Gallery ---------- */
+.gallery-section{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:34px;
+  margin-top:8px;
+  max-width:980px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.polaroid{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:14px 14px 20px;
+  box-shadow:var(--shadow);
+  transform:rotate(var(--tilt, 0deg));
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.polaroid:hover{
+  transform:rotate(0deg) translateY(-4px) scale(1.03);
+  box-shadow:0 20px 38px rgba(35,48,30,0.2);
+  z-index:2;
+}
+.polaroid:nth-child(1){--tilt:-3deg;}
+.polaroid:nth-child(2){--tilt:2deg;}
+.polaroid:nth-child(3){--tilt:-2deg;}
+.polaroid .frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/4;
+  border-radius:3px;
+  overflow:hidden;
+  background:var(--bg);
+}
+.polaroid img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+.polaroid figcaption{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:12px;
+  font-size:0.85rem;
+  color:var(--ink-soft);
+}
+.polaroid figcaption .paw-stamp{font-size:1rem;}
+.gallery-note{
+  text-align:center;
+  color:var(--ink-soft);
+  font-size:0.92rem;
+  margin-top:34px;
+}
+
+@media (max-width: 900px){
+  .gallery-grid{grid-template-columns:1fr 1fr; gap:22px; max-width:600px;}
+}
+@media (max-width: 560px){
+  .gallery-grid{grid-template-columns:1fr; max-width:360px; margin-left:auto; margin-right:auto;}
+}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:12px;}
+.faq-list details{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:0 22px;
+}
+.faq-list summary{
+  cursor:pointer;
+  list-style:none;
+  padding:18px 28px 18px 0;
+  font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;
+  position:relative;
+}
+.faq-list summary::-webkit-details-marker{display:none;}
+.faq-list summary::after{
+  content:"+";
+  position:absolute; right:0; top:50%; transform:translateY(-50%);
+  font-family:'Work Sans', sans-serif; font-size:1.4rem; color:var(--moss);
+}
+.faq-list details[open] summary::after{content:"–";}
+.faq-list details p{margin:0 0 18px; color:var(--ink-soft);}

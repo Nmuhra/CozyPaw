@@ -4,478 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cozypaw — Pet Sitting in Pretoria East &amp; Centurion</title>
+<meta name="description" content="Local pet sitting in Pretoria East &amp; Centurion. Overnight stays from R300 a night and house visits from R150, with photos and updates throughout. Meet &amp; greet before you book.">
+<meta name="theme-color" content="#4C6B4F">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:title" content="Cozypaw — Pet Sitting in Pretoria East &amp; Centurion">
+<meta property="og:description" content="Overnight stays (R300/night) and house visits (R150/visit) for dogs and cats, with photo updates throughout. Message us on WhatsApp to check availability.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%234C6B4F'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23FBFAF3'%3ECP%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Cozypaw",
+  "description": "Pet sitting, overnight stays and house visits in Pretoria East and Centurion.",
+  "telephone": "+27603401879",
+  "priceRange": "R150–R300",
+  "areaServed": ["Pretoria East", "Centurion", "Faerie Glen", "Garsfontein", "Waterkloof", "Brooklyn", "Hazelwood", "Olympus", "Irene", "Highveld", "Rooihuiskraal", "Southdowns"],
+  "makesOffer": [
+    {"@type": "Offer", "name": "Overnight stay", "price": "300", "priceCurrency": "ZAR", "description": "Per night"},
+    {"@type": "Offer", "name": "House visit", "price": "150", "priceCurrency": "ZAR", "description": "Per visit"}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #EDEFE2;
-    --paper: #FBFAF3;
-    --ink: #23301E;
-    --ink-soft: #4B5643;
-    --moss: #4C6B4F;
-    --moss-deep: #33472F;
-    --marigold: #C98A2E;
-    --marigold-soft: #E8CE9F;
-    --brick: #A85238;
-    --line: rgba(35,48,30,0.14);
-    --shadow: 0 12px 30px rgba(35,48,30,0.10);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-  }
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    color:var(--ink);
-    margin:0 0 0.4em 0;
-    font-weight:600;
-    letter-spacing:-0.01em;
-  }
-  a{color:inherit;}
-  .stamp-font{
-    font-family:'Space Mono', monospace;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-  }
-  .wrap{
-    max-width:1120px;
-    margin:0 auto;
-    padding:0 28px;
-  }
-
-  /* ---------- Header ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(237,239,226,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 28px;
-    max-width:1120px; margin:0 auto;
-  }
-  .brand{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces', serif; font-weight:600; font-size:1.35rem;
-  }
-  .brand .mark{
-    width:36px; height:36px; border-radius:50%;
-    background:var(--moss); color:var(--paper);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Fraunces', serif; font-size:1.1rem; font-weight:600;
-    flex-shrink:0;
-  }
-  nav.links{
-    display:flex; gap:28px; align-items:center;
-    font-size:0.92rem; font-weight:500;
-  }
-  nav.links a{
-    text-decoration:none; color:var(--ink-soft);
-    transition:color .15s ease;
-  }
-  nav.links a:hover{color:var(--moss-deep);}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:11px 20px;
-    border-radius:999px;
-    font-weight:600; font-size:0.9rem;
-    text-decoration:none;
-    border:1px solid transparent;
-    transition:transform .15s ease, box-shadow .15s ease;
-    cursor:pointer;
-  }
-  .btn:hover{transform:translateY(-1px);}
-  .btn-primary{background:var(--moss); color:var(--paper); box-shadow:var(--shadow);}
-  .btn-primary:hover{background:var(--moss-deep);}
-  .btn-ghost{border-color:var(--ink); color:var(--ink); background:transparent;}
-  .btn-ghost:hover{background:var(--ink); color:var(--paper);}
-  .btn-marigold{background:var(--marigold); color:#2A1B02; box-shadow:var(--shadow);}
-
-  /* ---------- Hero ---------- */
-  .hero{
-    padding:72px 0 88px;
-  }
-  .hero .wrap{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:56px;
-    align-items:center;
-  }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'Space Mono', monospace;
-    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em;
-    color:var(--moss-deep);
-    background:var(--marigold-soft);
-    padding:6px 14px;
-    border-radius:999px;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{content:"🐾"; font-size:0.9rem;}
-  .hero h1{
-    font-size:clamp(2.4rem, 4.4vw, 3.6rem);
-    line-height:1.06;
-    max-width:11ch;
-  }
-  .hero h1 em{
-    font-style:italic; color:var(--moss-deep);
-  }
-  .hero p.lede{
-    font-size:1.12rem; color:var(--ink-soft);
-    max-width:44ch; margin:20px 0 32px;
-  }
-  .hero-actions{
-    display:flex; gap:14px; flex-wrap:wrap;
-  }
-
-  /* Signature element: the visit report stamp card */
-  .report-card{
-    background:var(--paper);
-    border-radius:18px;
-    box-shadow:var(--shadow);
-    padding:26px 26px 22px;
-    position:relative;
-    transform:rotate(-2deg);
-    border:1px solid var(--line);
-  }
-  .report-card::after{
-    content:"";
-    position:absolute; inset:10px;
-    border:1.5px dashed rgba(35,48,30,0.18);
-    border-radius:10px;
-    pointer-events:none;
-  }
-  .report-head{
-    display:flex; justify-content:space-between; align-items:flex-start;
-    margin-bottom:18px;
-  }
-  .report-head .stamp-font{font-size:0.72rem; color:var(--ink-soft);}
-  .report-head .badge{
-    width:52px;height:52px;border-radius:50%;
-    background:var(--brick); color:var(--paper);
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.5rem; transform:rotate(8deg);
-    box-shadow:0 4px 10px rgba(168,82,56,0.35);
-  }
-  .report-card h3{font-size:1.3rem; margin-bottom:2px;}
-  .report-card .pet-sub{color:var(--ink-soft); font-size:0.88rem; margin-bottom:18px;}
-  .report-line{
-    display:flex; justify-content:space-between; align-items:center;
-    padding:10px 0;
-    border-top:1px solid var(--line);
-    font-size:0.94rem;
-  }
-  .report-line:first-of-type{border-top:none;}
-  .report-line .tick{color:var(--moss-deep); font-weight:700;}
-  .report-footer{
-    margin-top:16px; padding-top:14px; border-top:1px dashed var(--line);
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .report-footer .stamp-font{font-size:0.72rem; color:var(--ink-soft);}
-  .paw-stamp{
-    font-size:1.6rem; transform:rotate(-12deg);
-    color:var(--moss);
-  }
-
-  /* ---------- Trust strip ---------- */
-  .trust{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    background:var(--paper);
-  }
-  .trust .wrap{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-    padding:34px 28px;
-    text-align:center;
-  }
-  .trust-item .stamp-font{font-size:0.72rem; color:var(--moss-deep); display:block; margin-bottom:6px;}
-  .trust-item p{margin:0; font-weight:500; font-size:0.98rem;}
-
-  /* ---------- Section shell ---------- */
-  section{padding:88px 0;}
-  .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
-  .section-head .eyebrow{background:none; padding:0; color:var(--brick); margin-bottom:12px;}
-  .section-head .eyebrow::before{content:none;}
-  .section-head h2{font-size:clamp(1.8rem,3vw,2.4rem);}
-  .section-head p{color:var(--ink-soft); font-size:1.05rem; margin-top:12px;}
-
-  /* ---------- Services ---------- */
-  .services-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:28px;
-  }
-  .service-card{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:34px;
-    position:relative;
-    overflow:hidden;
-  }
-  .service-card .icon{
-    width:48px;height:48px;border-radius:12px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.4rem; margin-bottom:20px;
-  }
-  .service-card.overnight .icon{background:var(--moss); color:var(--paper);}
-  .service-card.visit .icon{background:var(--marigold); color:#2A1B02;}
-  .service-card h3{font-size:1.35rem;}
-  .service-card p{color:var(--ink-soft); margin:10px 0 22px;}
-  .price-tag{
-    display:inline-flex; align-items:baseline; gap:6px;
-    font-family:'Fraunces', serif; font-weight:600;
-    font-size:2rem; color:var(--moss-deep);
-  }
-  .price-tag span{
-    font-family:'Work Sans', sans-serif; font-weight:500;
-    font-size:0.95rem; color:var(--ink-soft);
-  }
-  .fine-print{
-    margin-top:10px; font-size:0.85rem; color:var(--ink-soft);
-    font-style:italic;
-  }
-
-  /* ---------- How it works ---------- */
-  .steps{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
-    counter-reset:step;
-  }
-  .step{position:relative; padding-top:8px;}
-  .step .num{
-    font-family:'Space Mono', monospace;
-    font-size:0.85rem; color:var(--marigold);
-    display:block; margin-bottom:10px;
-  }
-  .step h3{font-size:1.1rem; margin-bottom:6px;}
-  .step p{color:var(--ink-soft); font-size:0.92rem; margin:0;}
-  .step:not(:last-child)::after{
-    content:"";
-    position:absolute; top:14px; left:calc(100% + 4px);
-    width:calc(100% - 24px); height:1px;
-    background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px);
-    display:none;
-  }
-  @media(min-width:860px){ .step:not(:last-child)::after{display:block;} }
-
-  /* ---------- Rates ---------- */
-  .rates-panel{
-    background:var(--moss-deep);
-    color:var(--paper);
-    border-radius:22px;
-    padding:48px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
-  }
-  .rates-panel h2{color:var(--paper);}
-  .rates-panel p{color:rgba(251,250,243,0.78);}
-  .rate-list{list-style:none; margin:0; padding:0;}
-  .rate-list li{
-    display:flex; justify-content:space-between; align-items:baseline;
-    padding:16px 0;
-    border-bottom:1px solid rgba(251,250,243,0.18);
-  }
-  .rate-list li:last-child{border-bottom:none;}
-  .rate-list .label{font-weight:500;}
-  .rate-list .amount{
-    font-family:'Fraunces', serif; font-weight:600; font-size:1.5rem;
-  }
-  .rate-list .amount span{font-family:'Work Sans',sans-serif; font-size:0.8rem; font-weight:400; color:rgba(251,250,243,0.7);}
-
-  /* ---------- Coverage ---------- */
-  .coverage{
-    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
-  }
-  .coverage-map{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:36px;
-    text-align:center;
-  }
-  .coverage-map .pin{font-size:2.2rem; margin-bottom:10px;}
-  .coverage ul{padding-left:20px; color:var(--ink-soft);}
-  .coverage li{margin-bottom:8px;}
-
-  /* ---------- Gallery ---------- */
-  .gallery-section{background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:34px;
-    margin-top:8px;
-    max-width:980px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .polaroid{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:8px;
-    padding:14px 14px 20px;
-    box-shadow:var(--shadow);
-    transform:rotate(var(--tilt, 0deg));
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .polaroid:hover{
-    transform:rotate(0deg) translateY(-4px) scale(1.03);
-    box-shadow:0 20px 38px rgba(35,48,30,0.2);
-    z-index:2;
-  }
-  .polaroid:nth-child(1){--tilt:-3deg;}
-  .polaroid:nth-child(2){--tilt:2deg;}
-  .polaroid:nth-child(3){--tilt:-2deg;}
-  .polaroid .frame{
-    position:relative;
-    width:100%;
-    aspect-ratio:3/4;
-    border-radius:3px;
-    overflow:hidden;
-    background:var(--bg);
-  }
-  .polaroid img{
-    width:100%; height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .polaroid figcaption{
-    display:flex; align-items:center; justify-content:space-between;
-    padding-top:12px;
-    font-size:0.85rem;
-    color:var(--ink-soft);
-  }
-  .polaroid figcaption .paw-stamp{font-size:1rem;}
-  .gallery-note{
-    text-align:center;
-    color:var(--ink-soft);
-    font-size:0.92rem;
-    margin-top:34px;
-  }
-  @media (max-width: 900px){
-    .gallery-grid{grid-template-columns:1fr 1fr; gap:22px; max-width:600px;}
-  }
-  @media (max-width: 560px){
-    .gallery-grid{grid-template-columns:1fr; max-width:360px; margin-left:auto; margin-right:auto;}
-  }
-
-  /* ---------- Contact ---------- */
-  .contact-panel{
-    display:grid; grid-template-columns:1fr 1fr; gap:44px;
-  }
-  .contact-card{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:32px;
-  }
-  .contact-methods{display:flex; flex-direction:column; gap:16px; margin-top:22px;}
-  .contact-methods a{
-    display:flex; align-items:center; gap:12px;
-    text-decoration:none;
-    padding:14px 16px;
-    border:1px solid var(--line);
-    border-radius:12px;
-    font-weight:500;
-    transition:border-color .15s ease, background .15s ease;
-  }
-  .contact-methods a:hover{border-color:var(--moss); background:rgba(76,107,79,0.06);}
-  .contact-methods .em{font-size:1.2rem;}
-
-  form{display:flex; flex-direction:column; gap:14px;}
-  label{font-size:0.85rem; font-weight:600; color:var(--ink-soft);}
-  input, textarea{
-    width:100%;
-    padding:12px 14px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    font-family:'Work Sans', sans-serif;
-    font-size:0.95rem;
-    background:var(--bg);
-    color:var(--ink);
-  }
-  input:focus, textarea:focus{
-    outline:2px solid var(--moss);
-    outline-offset:1px;
-  }
-  textarea{resize:vertical; min-height:100px;}
-
-  footer{
-    border-top:1px solid var(--line);
-    padding:36px 0;
-    text-align:center;
-    color:var(--ink-soft);
-    font-size:0.85rem;
-  }
-  footer .brand{justify-content:center; margin-bottom:10px;}
-
-  .edit-note{
-    background:var(--marigold-soft);
-    color:#3A2A08;
-    font-size:0.82rem;
-    text-align:center;
-    padding:8px 12px;
-  }
-
-  @media (max-width: 900px){
-    .hero .wrap{grid-template-columns:1fr;}
-    .services-grid{grid-template-columns:1fr;}
-    .steps{grid-template-columns:1fr 1fr;}
-    .rates-panel{grid-template-columns:1fr;}
-    .coverage{grid-template-columns:1fr;}
-    .contact-panel{grid-template-columns:1fr;}
-    .trust .wrap{grid-template-columns:1fr;}
-    nav.links{display:none;}
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    .btn:hover{transform:none;}
-  }
-</style>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<header>
+<header id="top">
   <div class="nav">
     <div class="brand"><span class="mark">CP</span> Cozypaw</div>
-    <nav class="links">
+    <nav class="links" id="site-nav" aria-label="Main">
       <a href="#services">Services</a>
       <a href="#how">How it works</a>
       <a href="#rates">Rates</a>
       <a href="#area">Areas</a>
       <a href="#gallery">Gallery</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-primary" href="#contact">Book a sit</a>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="#contact">Book a sit</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">☰</button>
+    </div>
   </div>
 </header>
 
+<main id="main">
 <section class="hero">
   <div class="wrap">
     <div>
       <h1>Your pets, looked after like <em>family</em></h1>
       <p class="lede">Cozypaw is a small, local pet sitting service for dog walks, overnight stays and daily home visits — run by people who actually show up on time and send you photos while you're away.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Check availability</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/27603401879?text=Hi%20Cozypaw%2C%20I%27d%20like%20to%20check%20availability." target="_blank" rel="noopener">💬 WhatsApp us</a>
         <a class="btn btn-ghost" href="#rates">See rates</a>
       </div>
     </div>
     <div>
       <div class="report-card">
         <div class="report-head">
-          <div>
-            <div class="stamp-font">VISIT REPORT · TODAY</div>
-          </div>
+          <div class="stamp-font">Sample visit report</div>
         </div>
         <h3>Sushi's Update</h3>
         <div class="pet-sub">Overnight stay · Waterkloof, Pretoria East</div>
@@ -484,7 +80,7 @@
         <div class="report-line"><span>Medication given</span><span class="tick">✓</span></div>
         <div class="report-line"><span>Cuddles &amp; playtime</span><span class="tick">✓</span></div>
         <div class="report-footer">
-          <span class="stamp-font">Sent to owner · 18:42</span>
+          <span class="stamp-font">Example update · 18:42</span>
           <span class="paw-stamp">🐾</span>
         </div>
       </div>
@@ -499,31 +95,6 @@
     <div class="trust-item"><span class="stamp-font">Flexible</span><p>Meet &amp; greet before you book</p></div>
   </div>
 </div>
-
-<section id="gallery" class="gallery-section">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Recent visits</div>
-      <h2>Some of the faces we look after</h2>
-      <p>A few snapshots sent to owners during real Cozypaw visits — this is the kind of update you'll get too.</p>
-    </div>
-    <div class="gallery-grid">
-      <figure class="polaroid">
-        <div class="frame"><img src="images/gallery-1-cat.jpg" alt="Grumpy tabby cat lounging on a sunny patio during a Cozypaw house visit" loading="lazy"></div>
-        <figcaption><span>Faerie Glen</span><span class="paw-stamp">🐾</span></figcaption>
-      </figure>
-      <figure class="polaroid">
-        <div class="frame"><img src="images/gallery-2-puppy.jpg" alt="Chocolate Labrador puppy resting on a blanket, checked in on during an overnight stay" loading="lazy"></div>
-        <figcaption><span>Waterkloof</span><span class="paw-stamp">🐾</span></figcaption>
-      </figure>
-      <figure class="polaroid">
-        <div class="frame"><img src="images/gallery-3-frenchie-resting.jpg" alt="Chocolate Labrador sleeping soundly on a rug beside the couch" loading="lazy"></div>
-        <figcaption><span>Irene</span><span class="paw-stamp">🐾</span></figcaption>
-      </figure>
-    </div>
-    <p class="gallery-note">Photos &amp; updates like these land in your inbox during every visit — no need to ask.</p>
-  </div>
-</section>
 
 <section id="services">
   <div class="wrap">
@@ -554,28 +125,61 @@
       <div class="eyebrow">Booking process</div>
       <h2>How a booking works</h2>
     </div>
-    <div class="steps">
-      <div class="step">
-        <span class="num">01</span>
-        <h3>Message us</h3>
-        <p>Send your dates and your pet's details over WhatsApp, call or the form below.</p>
-      </div>
-        <div class="step">
-        <span class="num">02</span>
-        <h3>We confirm</h3>
-        <p>You get a confirmation that we have a pet sitter available.</p>
-      </div>
-      <div class="step">
-        <span class="num">03</span>
-        <h3>Meet &amp; greet</h3>
-        <p>Meet your petsitter, and explain what is expected during the stay.</p>
-      </div>
-      <div class="step">
-        <span class="num">04</span>
-        <h3>Updates while away</h3>
-        <p>Photos and short updates during every visit or overnight stay.</p>
-      </div>
-    </div>
+    <ol class="steps" data-stepper>
+      <li class="step" style="--i:0">
+        <button class="step-btn" type="button" id="step-btn-1" aria-controls="step-detail-1" aria-expanded="false">
+          <span class="step-dot" aria-hidden="true">01</span>
+          <span class="step-title">Message us</span>
+          <span class="step-summary">Send your dates and your pet's details over WhatsApp, call or the form below.</span>
+        </button>
+        <div class="step-detail" id="step-detail-1" role="region" aria-labelledby="step-btn-1">
+          <div class="step-detail-inner"><div class="step-detail-body">
+            <p>Tell us your dates, your suburb and a bit about your pet: their routine, any medication, and anything else we should know.</p>
+            <button class="step-action" type="button" data-step-next>Next step →</button>
+          </div></div>
+        </div>
+      </li>
+      <li class="step" style="--i:1">
+        <button class="step-btn" type="button" id="step-btn-2" aria-controls="step-detail-2" aria-expanded="false">
+          <span class="step-dot" aria-hidden="true">02</span>
+          <span class="step-title">We confirm</span>
+          <span class="step-summary">You get a confirmation that we have a pet sitter available.</span>
+        </button>
+        <div class="step-detail" id="step-detail-2" role="region" aria-labelledby="step-btn-2">
+          <div class="step-detail-inner"><div class="step-detail-body">
+            <p>We reply to confirm a sitter is free for your dates. If you're outside our usual radius, we'll quote the fuel cost upfront.</p>
+            <button class="step-action" type="button" data-step-next>Next step →</button>
+          </div></div>
+        </div>
+      </li>
+      <li class="step" style="--i:2">
+        <button class="step-btn" type="button" id="step-btn-3" aria-controls="step-detail-3" aria-expanded="false">
+          <span class="step-dot" aria-hidden="true">03</span>
+          <span class="step-title">Meet &amp; greet</span>
+          <span class="step-summary">Meet your petsitter, and explain what is expected during the stay.</span>
+        </button>
+        <div class="step-detail" id="step-detail-3" role="region" aria-labelledby="step-btn-3">
+          <div class="step-detail-inner"><div class="step-detail-body">
+            <p>You and your pet meet your sitter before the booking starts, so you can go through feeding, walks, medication and anything else that matters to you.</p>
+            <button class="step-action" type="button" data-step-next>Next step →</button>
+          </div></div>
+        </div>
+      </li>
+      <li class="step" style="--i:3">
+        <button class="step-btn" type="button" id="step-btn-4" aria-controls="step-detail-4" aria-expanded="false">
+          <span class="step-dot" aria-hidden="true">04</span>
+          <span class="step-title">Updates while away</span>
+          <span class="step-summary">Photos and short updates during every visit or overnight stay.</span>
+        </button>
+        <div class="step-detail" id="step-detail-4" role="region" aria-labelledby="step-btn-4">
+          <div class="step-detail-inner"><div class="step-detail-body">
+            <p>You'll get photos and short messages during every visit or overnight stay, like the sample report at the top of the page.</p>
+            <a class="step-action" href="#contact">Start your booking →</a>
+          </div></div>
+        </div>
+      </li>
+    </ol>
+    <p class="steps-hint">Tap a step to see what happens at each stage.</p>
   </div>
 </section>
 
@@ -589,7 +193,7 @@
       <ul class="rate-list">
         <li><span class="label">Overnight stay</span><span class="amount">R300 <span>/ night</span></span></li>
         <li><span class="label">House visit</span><span class="amount">R150 <span>/ visit</span></span></li>
-        <li><span class="label">Fuel (outside core area)</span><span class="amount">POA <span>on request</span></span></li>
+        <li><span class="label">Fuel (outside core area)</span><span class="amount">POA <span>quoted upfront</span></span></li>
       </ul>
     </div>
   </div>
@@ -623,6 +227,66 @@
   </div>
 </section>
 
+<section id="gallery" class="gallery-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Recent visits</div>
+      <h2>Some of the faces we look after</h2>
+      <p>A few snapshots from Cozypaw visits — this is the kind of update you'll get too.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="polaroid">
+        <div class="frame"><img src="images/gallery-1-cat.jpg" width="960" height="1280" alt="Grumpy-looking tabby cat with folded ears lounging on a sunny tiled patio" loading="lazy"></div>
+        <figcaption><span>Faerie Glen</span><span class="paw-stamp">🐾</span></figcaption>
+      </figure>
+      <figure class="polaroid">
+        <div class="frame"><img src="images/gallery-2-puppy.jpg" width="960" height="1280" alt="Chocolate Labrador puppy resting its head on a blanket in its bed" loading="lazy"></div>
+        <figcaption><span>Waterkloof</span><span class="paw-stamp">🐾</span></figcaption>
+      </figure>
+      <figure class="polaroid">
+        <div class="frame"><img src="images/gallery-3-frenchie-resting.jpg" width="1280" height="960" alt="French bulldog lying on a patio table in the late afternoon sun" loading="lazy"></div>
+        <figcaption><span>Irene</span><span class="paw-stamp">🐾</span></figcaption>
+      </figure>
+    </div>
+    <p class="gallery-note">Photos &amp; updates like these land in your inbox during every visit — no need to ask.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Good to know</div>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>What happens during a house visit?</summary>
+        <p>We drop in to feed your pet, take them for a walk, play with them and check that everything is well — then send you photos and a short update.</p>
+      </details>
+      <details>
+        <summary>What does an overnight stay involve?</summary>
+        <p>We stay over at your home, so your pet keeps their own bed, garden and routine, with company through the night.</p>
+      </details>
+      <details>
+        <summary>Do you look after cats as well as dogs?</summary>
+        <p>Yes, we look after both. Tell us about your pet's routine, medication and any quirks when you message us so we can plan around them.</p>
+      </details>
+      <details>
+        <summary>Can we meet before I book?</summary>
+        <p>Yes. Every booking starts with a meet &amp; greet, so you and your pet can meet your sitter and explain exactly what you need.</p>
+      </details>
+      <details>
+        <summary>Do you charge extra for fuel?</summary>
+        <p>Not within our core area. If you're further out we'll tell you the fuel cost upfront, before you commit to anything.</p>
+      </details>
+      <details>
+        <summary>Which suburbs do you cover?</summary>
+        <p>Mainly Pretoria East and Centurion — see the <a href="#area">areas</a> above. Nearby suburbs are possible on request, so just ask.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section id="contact" style="background:var(--paper); border-top:1px solid var(--line);">
   <div class="wrap">
     <div class="section-head">
@@ -642,7 +306,7 @@
       </div>
       <div class="contact-card">
         <h3>Send a booking request</h3>
-        <form action="mailto:hello@cozypaw.co.za" method="post" enctype="text/plain">
+        <form id="booking-form" action="mailto:nabegh.muhra25@gmail.com" method="post" enctype="text/plain">
           <div>
             <label for="name">Your name</label>
             <input id="name" name="name" type="text" placeholder="Jane van der Merwe" required>
@@ -659,12 +323,14 @@
             <label for="notes">Anything we should know</label>
             <textarea id="notes" name="notes" placeholder="Medication, routine, gate code, etc."></textarea>
           </div>
-          <button class="btn btn-marigold" type="submit">Send request</button>
+          <button class="btn btn-whatsapp" type="submit">💬 Send via WhatsApp</button>
+          <p class="form-note">Opens WhatsApp with your details filled in — just press send.</p>
         </form>
       </div>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
@@ -673,5 +339,9 @@
     <p>&copy; 2026 Cozypaw. Made with care for pets and their people.</p>
   </div>
 </footer>
+
+<a class="wa-float" href="https://wa.me/27603401879?text=Hi%20Cozypaw%2C%20I%27d%20like%20to%20check%20availability." target="_blank" rel="noopener" aria-label="Message Cozypaw on WhatsApp">💬 WhatsApp</a>
+
+<script src="js/main.js" defer></script>
 </body>
 </html>
