@@ -32,6 +32,7 @@ There is no templating, so the same facts appear in several places. When changin
 
 - **Prices** (R300/night overnight, R150/visit): the `#services` cards, the `#rates` list, the meta description, the `og:description`, and the JSON-LD offers/`priceRange`. The fuel note appears in `#services`, `#rates`, the FAQ and step 2 of the stepper.
 - **Phone number** (060 340 1879 / `27603401879`): the `wa.me` links (hero button, floating button, contact card, and the form script), the `tel:` link, the link labels, and the JSON-LD `telephone`.
+- **Domain** (`https://cozypaw.co.za/`): the `canonical` link, `og:url`, `og:image` and the JSON-LD `url`/`image` in `index.html`, plus [CNAME](CNAME), [robots.txt](robots.txt) and [sitemap.xml](sitemap.xml). Social-share image URLs must stay absolute; `images/og-image.jpg` is a 1200x630 crop of the French bulldog photo. Asset paths in the page itself are relative, so the site works on any host.
 - **Service area / suburbs**: the `<title>`, meta/OG text, the trust strip, `#area` copy, the FAQ, the footer, and the JSON-LD `areaServed`.
 
 ## Notes
