@@ -1,56 +1,132 @@
-/* Contact section (direct links + booking form) and footer */
+/* Contact section (direct links + booking form) and footer, both on the dark forest background */
 
+.contact-section{
+  background:var(--forest); color:var(--on-dark);
+  position:relative; overflow:hidden;
+}
+.contact-section::before{
+  content:"";
+  position:absolute; left:-200px; top:-200px;
+  width:620px; height:620px; border-radius:50%;
+  background:radial-gradient(circle, rgba(217,149,58,0.14), rgba(217,149,58,0) 65%);
+  pointer-events:none;
+}
 .contact-panel{
-  display:grid; grid-template-columns:1fr 1fr; gap:44px;
+  position:relative;
+  display:grid; grid-template-columns:0.95fr 1.05fr; gap:72px; align-items:start;
 }
-.contact-card{
-  background:var(--paper);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:32px;
-}
-.contact-methods{display:flex; flex-direction:column; gap:16px; margin-top:22px;}
+.contact-section .eyebrow{color:var(--marigold);}
+.contact-section h2{color:var(--on-dark);}
+.contact-section h2 em{color:var(--marigold-soft);}
+.contact-intro > p{color:var(--on-dark-soft); font-size:1.12rem; max-width:44ch;}
+.contact-methods{display:flex; flex-direction:column; gap:12px; margin-top:36px;}
 .contact-methods a{
-  display:flex; align-items:center; gap:12px;
+  display:flex; align-items:center; gap:16px;
   text-decoration:none;
-  padding:14px 16px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  font-weight:500;
-  transition:border-color .15s ease, background .15s ease;
+  padding:16px 20px 16px 16px;
+  border:1px solid var(--line-dark);
+  border-radius:20px;
+  background:rgba(246,240,229,0.03);
+  transition:border-color .2s ease, background .2s ease, transform .3s var(--ease);
 }
-.contact-methods a:hover{border-color:var(--moss); background:rgba(76,107,79,0.06);}
-.contact-methods .em{font-size:1.2rem;}
+.contact-methods a:hover{border-color:rgba(246,240,229,0.34); background:rgba(246,240,229,0.07); transform:translateX(4px);}
+.contact-methods .m-icon{
+  width:46px; height:46px; border-radius:50%; flex-shrink:0;
+  display:grid; place-items:center;
+  background:var(--sand); color:var(--forest);
+}
+.contact-methods a.wa .m-icon{background:var(--whatsapp); color:#fff;}
+.contact-methods a.fb .m-icon{background:#1877F2; color:#fff;}
+.contact-methods .m-icon .icon{width:21px; height:21px;}
+.contact-methods .m-text{display:flex; flex-direction:column; line-height:1.3; min-width:0;}
+.contact-methods .m-text small{font-size:0.78rem; color:var(--on-dark-soft); letter-spacing:0.04em;}
+.contact-methods .m-text span{font-weight:600; font-size:1.05rem; overflow-wrap:break-word;}
+.contact-methods .arrow{margin-left:auto; width:20px; height:20px; opacity:.5;}
 
-form{display:flex; flex-direction:column; gap:14px;}
-label{font-size:0.85rem; font-weight:600; color:var(--ink-soft);}
+.form-card{
+  background:var(--paper); color:var(--ink);
+  border-radius:30px;
+  padding:40px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.3);
+}
+.form-card h3{font-size:1.7rem; margin-bottom:6px;}
+.form-card > p{color:var(--ink-soft); font-size:0.97rem; margin-bottom:26px;}
+form{display:flex; flex-direction:column; gap:18px;}
+.form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+.field{display:flex; flex-direction:column; gap:7px;}
+label{font-size:0.85rem; font-weight:600; color:var(--ink);}
+label .opt{font-weight:400; color:var(--ink-soft);}
 input, textarea{
   width:100%;
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  font-family:'Work Sans', sans-serif;
-  font-size:0.95rem;
-  background:var(--bg);
+  padding:14px 16px;
+  border:1px solid rgba(31,42,28,0.16);
+  border-radius:14px;
+  font-family:inherit;
+  font-size:1rem;
+  background:#fff;
   color:var(--ink);
+  transition:border-color .2s ease, box-shadow .2s ease;
 }
+input::placeholder, textarea::placeholder{color:#9A9F92;}
+input:hover, textarea:hover{border-color:rgba(31,42,28,0.3);}
 input:focus, textarea:focus{
-  outline:2px solid var(--moss);
-  outline-offset:1px;
+  outline:none;
+  border-color:var(--moss);
+  box-shadow:0 0 0 4px rgba(63,94,67,0.14);
 }
-textarea{resize:vertical; min-height:100px;}
-.form-note{margin:0; font-size:0.85rem; color:var(--ink-soft);}
+textarea{resize:vertical; min-height:120px;}
+form .btn{margin-top:6px; width:100%;}
+.form-note{margin:0; font-size:0.82rem; color:var(--ink-soft); text-align:center;}
 
+/* ---------- Footer ---------- */
 footer{
-  border-top:1px solid var(--line);
-  padding:36px 0;
-  text-align:center;
-  color:var(--ink-soft);
+  background:#152017;
+  color:var(--on-dark-soft);
+  font-size:0.93rem;
+  padding:80px 0 0;
+}
+.footer-grid{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px;
+  padding-bottom:64px;
+}
+footer .brand{color:var(--on-dark); margin-bottom:16px;}
+footer .brand .mark{box-shadow:none;}
+.footer-about p{max-width:32ch;}
+.social{
+  display:inline-grid; place-items:center;
+  width:40px; height:40px; margin-top:8px; border-radius:50%;
+  border:1px solid var(--line-dark); color:var(--on-dark);
+  transition:background .2s ease, border-color .2s ease;
+}
+.social:hover{background:rgba(246,240,229,0.08); border-color:rgba(246,240,229,0.34);}
+.social .icon{width:18px; height:18px;}
+footer h3{
+  font-family:'DM Sans', sans-serif; font-size:0.76rem; font-weight:600;
+  letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--on-dark); margin-bottom:18px;
+}
+footer ul{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+footer a{text-decoration:none; transition:color .2s ease;}
+footer a:hover{color:var(--on-dark);}
+.footer-bottom{
+  border-top:1px solid var(--line-dark);
+  padding:26px 0;
+  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
   font-size:0.85rem;
 }
-footer .brand{justify-content:center; margin-bottom:10px;}
 
-@media (max-width: 900px){
-  .contact-panel{grid-template-columns:1fr;}
-  footer{padding-bottom:96px;} /* room for the floating WhatsApp button */
+@media (max-width: 980px){
+  .contact-panel{grid-template-columns:1fr; gap:48px;}
+  .footer-grid{grid-template-columns:1fr 1fr; gap:40px;}
+  .footer-about{grid-column:1 / -1;}
+  footer{padding-bottom:84px;} /* room for the floating WhatsApp button */
+}
+@media (max-width: 560px){
+  .form-card{padding:28px 22px; border-radius:24px;}
+  .contact-methods .m-text span{font-size:0.97rem;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+}
+@media (prefers-reduced-motion: reduce){
+  .contact-methods a:hover{transform:none;}
 }
